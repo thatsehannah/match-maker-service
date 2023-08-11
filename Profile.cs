@@ -17,12 +17,29 @@ namespace MatchMakerService
 			this.city = city;
 			this.country = country;
 			this.pronouns = pronouns;
-			this.hobbies = new string[3];
+			this.hobbies = new string[4];
 		}
 
 		public string ViewProfile()
 		{
-			return $"Name: {name}\nAge: {age}\nLocation: {city}, {country}\nPronouns: {pronouns}";
+			string info = $"Name: {name}\nAge: {age}\nLocation: {city}, {country}\nPronouns: {pronouns}\nHobbies: ";
+			foreach (string hobby in hobbies)
+			{
+				if (hobby == hobbies[hobbies.Length - 1])
+				{
+					info += hobby;
+				} else
+				{
+                    info += hobby + ", ";
+                }
+				
+			}
+			return info;
+		}
+
+		public void SetHobbies(string[] hobbies)
+		{
+			this.hobbies = hobbies;
 		}
 	}
 }
